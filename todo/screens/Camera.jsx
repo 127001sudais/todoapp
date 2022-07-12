@@ -58,6 +58,37 @@ let CameraComponent = ({ navigation, route }) => {
         ratio="1:1"
         ref={(e) => setCamera(e)}
       />
+      <View
+        style={{
+          flexDirection: "row",
+          position: "absolute",
+          bottom: 10,
+          justifyContent: "space-evenly",
+          width: "100%",
+        }}
+      >
+        <Icon
+          name="image"
+          size={40}
+          color="#fff"
+          onPress={openImagePickerAsync}
+        />
+
+        <Icon name="camera" size={40} color="#fff" onPress={clickPicture} />
+
+        <Icon
+          name="flip-camera-android"
+          size={40}
+          color="#fff"
+          onPress={() =>
+            setType(
+              type === CameraType.back ? CameraType.front : CameraType.back
+            )
+          }
+        />
+      </View>
     </View>
   );
 };
+
+export default CameraComponent;
