@@ -57,7 +57,7 @@ export let authReducer = createReducer(
     logoutFailure: (state, action) => {
         state.loading = false;
         state.isAuthenticated = true;
-        state.err = action.payload;
+        state.error = action.payload;
     },
     verificationRequest: (state) => {
         state.loading = true;

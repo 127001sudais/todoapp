@@ -83,11 +83,62 @@ let Home = ({ navigation }) => {
           <TextInput
             style={styles.input}
             placeholder="Title"
-            value="title"
+            value={title}
             onChangeText={setTitle}
           />
+          <TextInput
+            style={styles.input}
+            placeholder="Description"
+            value={description}
+            onChangeText={setDescription}
+          />
+
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <TouchableOpacity onPress={hideDialog}>
+              <Text>CANCEL</Text>
+            </TouchableOpacity>
+            <Button
+              onPress={addTaskHandler}
+              color="#900"
+              disabled={!title || !description || loading}
+            >
+              ADD
+            </Button>
+          </View>
         </Dialog.Content>
       </Dialog>
     </>
   );
 };
+export default Home;
+
+let styles = StyleSheet.create({
+  heading: {
+    fontSize: 28,
+    textAlign: "center",
+    marginTop: 25,
+    marginBottom: 20,
+    color: "#fff",
+    backgroundColor: "#474747",
+  },
+  addBtn: {
+    backgroundColor: "#fff",
+    width: 150,
+    height: 50,
+    justifyContent: "center",
+    borderRadius: 100,
+    alignSelf: "center",
+    marginVertical: 20,
+    elevation: 5,
+  },
+  input: {
+    backgroundColor: "#fff",
+    borderWidth: 1,
+    borderColor: "#b5b5b5",
+    padding: 10,
+    paddingLeft: 15,
+    borderRadius: 5,
+    marginVertical: 15,
+    fontSize: 15,
+  },
+});
